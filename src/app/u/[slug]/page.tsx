@@ -1,13 +1,16 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { ButtonLink } from '@/components/button-link'
 import { CardLink } from '@/components/card-link'
-import { data } from '@/constants'
+// import { data } from '@/constants'
+import { userData } from '@/constants'
 
-export default function HomePage() {
+export default function HomePage({ params }: any) {
+  let data = userData[params.slug]
+  if (!data) return;
   return (
     <main className='flex items-center flex-col mx-auto w-full justify-center pt-24 px-8'>
       <a
-        href='https://github.com/emapeire'
+        href=''
         target='_blank'
         rel='noopener noreferrer'
         className='rounded-full'
@@ -37,16 +40,16 @@ export default function HomePage() {
         ))}
       </section>
 
-      <h3 className='font-semibold my-4 text-xl dark:text-white text-black text-center'>
-        Personal Network
-      </h3>
+      {data.socials.length >0 && <h3 className='font-semibold my-4 text-xl dark:text-white text-black text-center'>
+        Highlight
+      </h3>}
       {data.socials.map((social) => (
         <CardLink key={social.url} {...social} />
       ))}
 
-      <h3 className='font-semibold mt-8 mb-4 text-xl dark:text-white text-black text-center'>
-        Community Network
-      </h3>
+      {data.communities.length >0 && <h3 className='font-semibold mt-8 mb-4 text-xl dark:text-white text-black text-center'>
+        Links
+      </h3>}
       {data.communities.map((community) => (
         <CardLink key={community.url} {...community} />
       ))}

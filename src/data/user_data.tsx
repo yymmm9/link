@@ -10,32 +10,32 @@ import { WebIcon } from '@/components/icons/web'
 import { WhatsappIcon } from '@/components/icons/whatsapp'
 import { XIcon } from '@/components/icons/x'
 
-export const SOCIAL_DATA = {
+export const USER_DATA = {
+  temp:{
   slug: '',
-  name: 'Emanuel Peire',
-  initials: 'EP',
-  avatar: '/assets/avatar.webp',
-  about: `Frontend Engineer, Developer Relations and AI research enthusiast. Always influenced by design.
-  Based in Rosario, Argentina 🇦🇷`,
+  name: 'Li Ye',
+  initials: 'LY',
+  avatar: '',
+  about: `Eu dolore anim quis laboris cillum sunt deserunt id sint esse culpa. Do Lorem non ex ea consequat quis cillum occaecat tempor mollit tempor aliquip incididunt et velit.`,
   contacts: [
     {
-      title: 'Portfolio',
+      title: 'Website',
       url: 'https://emapeire.xyz',
       icon: WebIcon
     },
-    {
-      title: 'Resume',
-      url: 'https://cv.emapeire.xyz',
-      icon: ResumeIcon
-    },
+    // {
+    //   title: 'Resume',
+    //   url: 'https://cv.emapeire.xyz',
+    //   icon: ResumeIcon
+    // },
     {
       title: 'Email',
-      url: 'mailto:hi@emapeire.xyz',
+      url: 'mailto:yymmm9@gmail.com',
       icon: MailIcon
     },
     {
       title: 'WhatsApp',
-      url: 'https://wa.me/+5493417190449',
+      url: 'https://wa.me/+3347972856',
       icon: WhatsappIcon
     }
   ],
@@ -43,39 +43,29 @@ export const SOCIAL_DATA = {
     {
       title: 'GitHub',
       url: 'https://github.com/emapeire',
-      icon: GithubIcon
+      // icon: GithubIcon
     },
     {
       title: 'LinkedIn',
       url: 'https://www.linkedin.com/in/emanuelpeire',
       icon: LinkedinIcon
     },
-    {
-      title: 'The everything app',
-      url: 'https://x.com/emapeire',
-      icon: XIcon
-    },
-    {
-      title: 'Dev Community',
-      url: 'https://dev.to/emapeire',
-      icon: DevtoIcon
-    },
-    {
-      title: 'Telegram',
-      url: 'https://t.me/emapeire',
-      icon: TelegramIcon
-    }
   ],
   communities: [
     {
-      title: 'Next.js Argentina',
-      url: 'https://dub.sh/nextjsargentina',
-      icon: NextJSArgIcon
+      title: 'Email',
+      url: 'mailto:yymmm9@gmail.com',
+      icon: MailIcon
     },
-    {
-      title: 'Discord Community',
-      url: 'https://dub.sh/dsnextjsarg',
-      icon: DiscordIcon
-    }
+    // {
+    //   title: 'Next.js Argentina',
+    //   url: 'https://dub.sh/nextjsargentina',
+    //   icon: NextJSArgIcon
+    // },
+    // {
+    //   title: 'Discord Community',
+    //   url: 'https://dub.sh/dsnextjsarg',
+    //   icon: DiscordIcon
+    // }
   ]
-}
+}}

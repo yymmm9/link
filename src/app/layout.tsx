@@ -1,7 +1,7 @@
 import type React from 'react'
 import { type Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+// import { GeistMono } from 'geist/font/mono'
 import { Head } from '@/components/head'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
@@ -27,7 +27,7 @@ export default function RootLayout({
       className={cn(
         'min-h-screen bg-background font-sans antialiased overflow-y-scroll',
         GeistSans.variable,
-        GeistMono.variable
+        // GeistMono.variable
       )}
       suppressHydrationWarning
     >

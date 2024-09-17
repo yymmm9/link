@@ -10,10 +10,16 @@ import { type Links } from '@/types'
 
 export function CopyToClipboard({ url }: { url: Links['url'] }) {
   const [copied, setCopied] = useState(false)
+  
+  const stripSpecialPrefixes = (url: string): string => {
+    return url.replace(/^(tel:|mailto:)/, '');
+  };
 
   const copyToClipboard = () => {
+  let safeUrl = stripSpecialPrefixes(url)
+
     navigator.clipboard
-      .writeText(url)
+      .writeText(safeUrl)
       .then(() => {
         setCopied(true)
         toast.success('Copied to clipboard')
