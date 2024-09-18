@@ -1,12 +1,18 @@
 // @ts-nocheck
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ButtonLink } from "@/components/button-link";
-import { CardLink } from "@/components/card-link";
 // import { data } from '@/constants'
 import { userData } from "@/constants";
 import type { Metadata, ResolvingMetadata } from "next";
+import dynamic from "next/dynamic";
 
 export const revalidate = 86400;
+
+const CardLink = dynamic(() => import("@/components/card-link"), {
+  ssr: false,
+});
+const ButtonLink = dynamic(() => import("@/components/button-link"), {
+  ssr: false,
+});
 // generateMetadata should handle errors properly
 
 export async function generateMetadata({

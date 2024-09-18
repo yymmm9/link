@@ -1,13 +1,14 @@
 import { SOCIAL_DATA } from '@/data/social_data'
 import { type Data } from '@/types'
 import { USER_DATA } from '@/data/user_data'
+import { ReactNode } from 'react'
 
 export const data: Data = SOCIAL_DATA
 
 export type Links = {
   title: string
   url: string
-  icon?: React.FC;
+  icon?: any;
 }
 type UserData = {
   [key: string]: {

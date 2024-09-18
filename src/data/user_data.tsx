@@ -1,9 +1,7 @@
-import { LinkedinIcon } from "@/components/icons/linkedin";
-import { MailIcon } from "@/components/icons/mail";
-import { WebIcon } from "@/components/icons/web";
+import { BiWechat } from "@/components/icons/wechat";
+import { TdesignLogoWechatStroke } from "@/components/icons/wechat-2";
 import { WhatsappIcon } from "@/components/icons/whatsapp";
-import { PhoneIcon } from "lucide-react";
-import { MessageCircleMoreIcon } from "lucide-react";
+import { PhoneIcon, MailIcon, MessageCircleMoreIcon } from "lucide-react";
 
 export const USER_DATA = {
   liye: {
@@ -16,22 +14,22 @@ export const USER_DATA = {
       {
         title: "Wechat",
         url: "liye722",
-        icon: MessageCircleMoreIcon,
+        icon: <TdesignLogoWechatStroke />,
       },
       {
         title: "Email",
         url: "mailto:ye8507@hotmail.com",
-        icon: MailIcon,
+        icon: <MailIcon />,
       },
       {
         title: "Tel",
         url: "tel:+34692085962",
-        icon: MailIcon,
+        icon: <PhoneIcon />,
       },
       {
         title: "WhatsApp",
         url: "https://wa.me/+34692085962",
-        icon: WhatsappIcon,
+        icon: <WhatsappIcon />,
       },
     ],
     socials: [
@@ -45,17 +43,17 @@ export const USER_DATA = {
       {
         title: "Email",
         url: "mailto:ye8507@hotmail.com",
-        icon: MailIcon,
+        icon: <MailIcon />,
       },
       {
         title: "Phone",
         url: "tel:+34692085962",
-        icon: PhoneIcon,
+        icon: <PhoneIcon />,
       },
       {
         title: "Wechat: liye722",
         url: "liye722",
-        icon: MessageCircleMoreIcon,
+        icon: <TdesignLogoWechatStroke />,
       },
       // {
       //   title: 'Next.js Argentina',

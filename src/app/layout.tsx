@@ -2,7 +2,6 @@ import type React from "react";
 import { type Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 // import { GeistMono } from 'geist/font/mono'
-import { Head } from "@/components/head";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,7 +33,7 @@ export default function RootLayout({
       )}
       suppressHydrationWarning
     >
-      <Head metadata={metadata} />
+      {/* <Head metadata={metadata} /> */}
       <body className="w-full">
         <ThemeProvider
           attribute="class"
