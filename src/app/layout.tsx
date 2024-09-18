@@ -14,7 +14,7 @@ import "@/styles/globals.css";
 const metadata: Metadata = {
   title: {
     template: "%s | Hov",
-    Default: "Hov",
+    default: "Hov",
   },
   description: "",
 };
