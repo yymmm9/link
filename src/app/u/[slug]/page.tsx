@@ -5,10 +5,7 @@ import { CardLink } from "@/components/card-link";
 import { userData } from "@/constants";
 import type { Metadata, ResolvingMetadata } from "next";
 
-// export const metadata: Metadata = {
-//   title: ,
-// }
-
+export const revalidate = 86400;
 export async function generateMetadata(
   { params }: any,
   parent: ResolvingMetadata
