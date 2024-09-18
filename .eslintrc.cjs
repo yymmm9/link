@@ -30,7 +30,24 @@ module.exports = {
     'react/jsx-no-target-blank': [2, { allowReferrer: false }],
     "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/object-curly-spacing": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/consistent-indexed-object-style": "off",
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "none",
+        "requireLast": false
+      },
+      "singleline": {
+        "delimiter": "comma",
+        "requireLast": false
+      }
+    }],
+    "@typescript-eslint/semi": "off",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "@typescript-eslint/space-infix-ops": "error",
+    "avoidEscape": true,
+    "allowTemplateLiterals": true
   },
   overrides: [
     {
