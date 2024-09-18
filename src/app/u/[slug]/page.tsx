@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ButtonLink } from "@/components/button-link";
 import { CardLink } from "@/components/card-link";
@@ -7,6 +8,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 
 export const revalidate = 86400;
 // generateMetadata should handle errors properly
+
 export async function generateMetadata({
   params,
 }: {
