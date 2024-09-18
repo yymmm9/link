@@ -3,7 +3,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
 // import { type Links } from '@/types'
 import { Links } from "@/constants";
-function ButtonLink({ title, url, icon }: Links) {
+export const ButtonLink = ({ title, url, icon }: Links) => {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -32,5 +32,4 @@ function ButtonLink({ title, url, icon }: Links) {
       </TooltipContent>
     </Tooltip>
   );
-}
-export default ButtonLink;
+};
