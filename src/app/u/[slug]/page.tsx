@@ -6,25 +6,34 @@ import { userData } from "@/constants";
 import type { Metadata, ResolvingMetadata } from "next";
 
 export const revalidate = 86400;
-export async function generateMetadata(
-  { params }: any,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  let data = userData[params.slug];
-  // const previousImages = (await parent).openGraph?.images || [];
+// generateMetadata should handle errors properly
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const data = userData[params.slug] || null; // Handle missing data
+
+  if (!data) {
+    // Return metadata or log errors if necessary
+    return { title: "User Not Found" };
+  }
 
   return {
-    title: data?.name || "Not Found",
+    title: data.name,
   };
 }
 
-// Fetch the list of slugs to pre-generate pages at build time
 export async function generateStaticParams() {
-  // Replace this with a real API call to fetch available slugs
-  const slugs = Object.keys(userData);
+  // Make sure slugs are valid and returned correctly
+  const slugs = Object.keys(userData); // Assuming userData is available
+
+  if (!slugs || slugs.length === 0) {
+    throw new Error("No valid slugs available for SSG");
+  }
 
   return slugs.map((slug) => ({
-    slug,
+    slug, // Return slug as a valid static param
   }));
 }
 
