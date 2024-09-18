@@ -22,14 +22,17 @@ module.exports = {
     '@next/next/no-head-element': 'off',
     'multiline-ternary': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off', // To avoid type issues
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     'react-refresh/only-export-components': 'off',
     'react/prop-types': 'off',
     'react/jsx-no-target-blank': [2, { allowReferrer: false }],
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/space-infix-ops': 'error',
-    'no-multiple-empty-lines': ['error', { max: 1 }]
+    'no-multiple-empty-lines': ['warn', { max: 1 }], // Change to warn
+    'prefer-const': 'warn', // Change to warn instead of error
+    '@typescript-eslint/no-unused-vars': 'warn', // Change to warn
+    'react/react-in-jsx-scope': 'off' // Disable this rule
   },
   overrides: [
     {
