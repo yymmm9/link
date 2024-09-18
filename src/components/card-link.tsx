@@ -24,7 +24,7 @@ export default function CardLink({ title, url, icon }: Links) {
           </h2>
         </div>
       </a>
-      <div className="absolute group-hover:flex right-3 top-1/2 -translate-y-1/2 items-center hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute group-hover:flex right-3 top-1/2 -translate-y-1/2 items-center md:hidden md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center">
         <CopyToClipboard url={url} />
       </div>
     </div>

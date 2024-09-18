@@ -47,7 +47,7 @@ export function CopyToClipboard({ url }: { url: Links["url"] }) {
               "absolute inset-0 transition-opacity duration-300 size-4",
               {
                 "opacity-100": !copied,
-                "md:opacity-0": copied,
+                "opacity-0": copied,
               }
             )}
           />
