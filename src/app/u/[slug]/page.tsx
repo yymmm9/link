@@ -3,26 +3,21 @@ import { ButtonLink } from "@/components/button-link";
 import { CardLink } from "@/components/card-link";
 // import { data } from '@/constants'
 import { userData } from "@/constants";
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 
 // export const metadata: Metadata = {
 //   title: ,
 // }
 
 export async function generateMetadata(
-  { params }: Props,
+  { params }: any,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // read route params
   let data = userData[params.slug];
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-  if (!data) return;
+  // const previousImages = (await parent).openGraph?.images || [];
+
   return {
-    title: data.name,
-    openGraph: {
-      // images: ['/some-specific-page-image.jpg', ...previousImages],
-    },
+    title: data?.name,
   };
 }
 
