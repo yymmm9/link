@@ -20,6 +20,7 @@ module.exports = {
   plugins: ['react-refresh', 'react'],
   rules: {
     '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/quotes': 'off',
     '@next/next/no-head-element': 'off',
     'multiline-ternary': 'off',
     '@typescript-eslint/space-before-function-paren': 'off',
