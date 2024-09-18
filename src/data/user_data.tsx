@@ -4,7 +4,7 @@ import { WebIcon } from '@/components/icons/web'
 import { WhatsappIcon } from '@/components/icons/whatsapp'
 
 export const USER_DATA = {
-  temp: {
+  liye: {
   slug: '',
   name: 'Li Ye',
   initials: 'LY',
