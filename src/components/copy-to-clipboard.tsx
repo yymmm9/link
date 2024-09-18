@@ -1,62 +1,62 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { toast } from 'sonner'
-import { Tooltip, TooltipTrigger, TooltipContent } from './ui/tooltip'
-import { Button } from './ui/button'
-import { CopyIcon, CheckIcon } from 'lucide-react'
-import clsx from 'clsx'
-import { type Links } from '@/types'
+import { useState } from "react";
+import { toast } from "sonner";
+import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
+import { Button } from "./ui/button";
+import { CopyIcon, CheckIcon } from "lucide-react";
+import clsx from "clsx";
+import { type Links } from "@/types";
 
-export function CopyToClipboard({ url }: { url: Links['url'] }) {
-  const [copied, setCopied] = useState(false)
-  
+export function CopyToClipboard({ url }: { url: Links["url"] }) {
+  const [copied, setCopied] = useState(false);
+
   const stripSpecialPrefixes = (url: string): string => {
-    return url.replace(/^(tel:|mailto:)/, '');
+    return url.replace(/^(tel:|mailto:)/, "");
   };
 
   const copyToClipboard = () => {
-  let safeUrl = stripSpecialPrefixes(url)
+    let safeUrl = stripSpecialPrefixes(url);
 
     navigator.clipboard
       .writeText(safeUrl)
       .then(() => {
-        setCopied(true)
-        toast.success('Copied to clipboard')
+        setCopied(true);
+        toast.success("Copied to clipboard");
         setTimeout(() => {
-          setCopied(false)
-        }, 2000)
+          setCopied(false);
+        }, 2000);
       })
       .catch((error) => {
-        if (error) toast.error('Error copying to clipboard')
-      })
-  }
+        if (error) toast.error("Error copying to clipboard");
+      });
+  };
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          variant='link'
-          size='icon'
+          variant="link"
+          size="icon"
           onClick={copyToClipboard}
           disabled={copied}
-          className='relative size-4 disabled:opacity-100'
+          className="relative size-4 disabled:opacity-100"
         >
           <CopyIcon
             className={clsx(
-              'absolute inset-0 transition-opacity duration-300 size-4',
+              "absolute inset-0 transition-opacity duration-300 size-4",
               {
-                'opacity-100': !copied,
-                'opacity-0': copied
+                "opacity-100": !copied,
+                "md:opacity-0": copied,
               }
             )}
           />
           <CheckIcon
             className={clsx(
-              'absolute inset-0 transition-opacity duration-300 size-4',
+              "absolute inset-0 transition-opacity duration-300 size-4",
               {
-                'opacity-0': !copied,
-                'opacity-100': copied
+                "opacity-0": !copied,
+                "opacity-100": copied,
               }
             )}
           />
@@ -66,5 +66,5 @@ export function CopyToClipboard({ url }: { url: Links['url'] }) {
         <p>Copy</p>
       </TooltipContent>
     </Tooltip>
-  )
+  );
 }
