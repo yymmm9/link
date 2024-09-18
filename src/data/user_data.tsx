@@ -1,17 +1,10 @@
-import { DevtoIcon } from '@/components/icons/devto'
-import { DiscordIcon } from '@/components/icons/discord'
-import { GithubIcon } from '@/components/icons/github'
 import { LinkedinIcon } from '@/components/icons/linkedin'
 import { MailIcon } from '@/components/icons/mail'
-import { NextJSArgIcon } from '@/components/icons/nextjsargentina'
-import { ResumeIcon } from '@/components/icons/resume'
-import { TelegramIcon } from '@/components/icons/telegram'
 import { WebIcon } from '@/components/icons/web'
 import { WhatsappIcon } from '@/components/icons/whatsapp'
-import { XIcon } from '@/components/icons/x'
 
 export const USER_DATA = {
-  temp:{
+  temp: {
   slug: '',
   name: 'Li Ye',
   initials: 'LY',
@@ -20,7 +13,7 @@ export const USER_DATA = {
   contacts: [
     {
       title: 'Website',
-      url: 'https://emapeire.xyz',
+      url: 'youtube.com',
       icon: WebIcon
     },
     // {
@@ -41,14 +34,9 @@ export const USER_DATA = {
   ],
   socials: [
     {
-      title: 'GitHub',
-      url: 'https://github.com/emapeire',
+      title: 'Conf 2024',
+      url: '',
       // icon: GithubIcon
-    },
-    {
-      title: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/emanuelpeire',
-      icon: LinkedinIcon
     },
   ],
   communities: [
@@ -57,6 +45,11 @@ export const USER_DATA = {
       url: 'mailto:yymmm9@gmail.com',
       icon: MailIcon
     },
+    {
+      title: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/emanuelpeire',
+      icon: LinkedinIcon
+    }
     // {
     //   title: 'Next.js Argentina',
     //   url: 'https://dub.sh/nextjsargentina',

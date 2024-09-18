@@ -27,7 +27,10 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     'react-refresh/only-export-components': 'off',
     'react/prop-types': 'off',
-    'react/jsx-no-target-blank': [2, { allowReferrer: false }]
+    'react/jsx-no-target-blank': [2, { allowReferrer: false }],
+    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/object-curly-spacing": "off",
+    "object-curly-newline": "off"
   },
   overrides: [
     {

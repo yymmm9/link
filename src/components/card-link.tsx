@@ -12,7 +12,7 @@ export function CardLink({ title, url, icon }: Links) {
       >
         <div className='flex w-full items-center'>
           {icon && icon({ className: 'size-8' })}
-          {icon && <div className="-ml-8"></div>}
+          {icon && <div className='-ml-8'></div>}
           <h2 className='flex justify-center font-medium font-monoo w-full dark:text-neutral-100 text-neutral-800'>
             {title}
           </h2>

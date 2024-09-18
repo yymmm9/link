@@ -23,4 +23,4 @@ type UserData = {
   };
 
 
-export const userData:UserData= USER_DATA
+export const userData: UserData= USER_DATA
