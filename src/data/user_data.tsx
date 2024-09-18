@@ -34,13 +34,13 @@ export const USER_DATA = {
         icon: WhatsappIcon,
       },
     ],
-    // socials: [
-    //   {
-    //     title: "Conf 2024",
-    //     url: "",
-    //     // icon: GithubIcon
-    //   },
-    // ],
+    socials: [
+      // {
+      //   title: "Conf 2024",
+      //   url: "",
+      //   // icon: GithubIcon
+      // },
+    ],
     communities: [
       {
         title: "Email",
