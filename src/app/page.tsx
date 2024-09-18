@@ -1,7 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ButtonLink } from "@/components/button-link";
-import { CardLink } from "@/components/card-link";
-import { data } from "@/constants";
 import Hero from "@/components/bridge/hero2";
 
 export default function HomePage() {
