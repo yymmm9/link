@@ -1,16 +1,17 @@
 module.exports = {
   root: true,
   env: { browser: true, es2021: true, node: true },
-  extends: [
-    'standard-with-typescript',
-    'next/core-web-vitals',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:@typescript-eslint/stylistic-type-checked',
-    'plugin:react-hooks/recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime'
-  ],
+  // extends: [
+  //   'standard-with-typescript',
+  //   'next/core-web-vitals',
+  //   'eslint:recommended',
+  //   'plugin:@typescript-eslint/recommended-type-checked',
+  //   'plugin:@typescript-eslint/stylistic-type-checked',
+  //   'plugin:react-hooks/recommended',
+  //   'plugin:react/recommended',
+  //   'plugin:react/jsx-runtime'
+  // ],
+  extends: "next/core-web-vitals",
   ignorePatterns: ['dist', '.eslintrc.cjs', 'next-env.d.ts', 'tsconfig.json'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
