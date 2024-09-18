@@ -7,20 +7,20 @@ export const data: Data = SOCIAL_DATA
 export type Links = {
   title: string
   url: string
-  icon?: React.FC<React.SVGProps<SVGSVGElement>>
-} 
+  icon?: React.FC;
+}
 type UserData = {
-    [key: string]: {
-      slug: string;
-      name: string;
-      initials: string;
-      avatar: string;
-      about: string;
-      contacts: Links[];
-      socials: Links[];
-      communities: Links[];
-    };
+  [key: string]: {
+    slug: string;
+    name: string;
+    initials: string;
+    avatar: string;
+    about: string;
+    contacts: Links[];
+    socials: Links[];
+    communities: Links[];
   };
+};
 
 
-export const userData: UserData= USER_DATA
+export const userData: UserData = USER_DATA
