@@ -46,7 +46,7 @@ module.exports = {
     "@typescript-eslint/semi": "off",
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "@typescript-eslint/space-infix-ops": "error",
-    "avoidEscape": true,
+    "avoidEscape": 1,
     "allowTemplateLiterals": true
   },
   overrides: [
