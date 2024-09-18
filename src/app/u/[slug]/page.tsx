@@ -14,8 +14,18 @@ export async function generateMetadata(
   // const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: data?.name,
+    title: data?.name || "Not Found",
   };
+}
+
+// Fetch the list of slugs to pre-generate pages at build time
+export async function generateStaticParams() {
+  // Replace this with a real API call to fetch available slugs
+  const slugs = Object.keys(userData);
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
 }
 
 export default function HomePage({ params }: any) {
