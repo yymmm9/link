@@ -1,7 +1,6 @@
 import { SOCIAL_DATA } from '@/data/social_data'
 import { type Data } from '@/types'
 import { USER_DATA } from '@/data/user_data'
-import { ReactNode } from 'react'
 
 export const data: Data = SOCIAL_DATA
 
@@ -10,10 +9,17 @@ export type Links = {
   url: string
   icon?: any;
 }
-type UserData = {
+
+export type UserData = {
   [key: string]: {
     slug: string;
-    name: string;
+    title: string;
+    firstName: string;
+    lastName: string;
+    organization: string;
+    workPhone: string;
+    website: string;
+    birthday: string;
     initials: string;
     avatar: string;
     about: string;
@@ -22,6 +28,5 @@ type UserData = {
     communities: Links[];
   };
 };
-
 
 export const userData: UserData = USER_DATA

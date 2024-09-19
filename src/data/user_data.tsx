@@ -6,10 +6,16 @@ import { PhoneIcon, MailIcon, MessageCircleMoreIcon } from "lucide-react";
 export const USER_DATA = {
   liye: {
     slug: "",
-    name: "Li Ye",
+    firstName: "Li",
+    lastName: "Ye",
+    organization: "",
+    title: "CMO",
     initials: "LY",
     avatar: "",
     about: `Eu dolore anim quis laboris Lorem non ex ea consequat quis cillum occaecat tempor mollit tempor aliquip incididunt et velit.`,
+    workPhone: "+34692085962",
+    birthday: "",
+    website: "",
     contacts: [
       {
         title: "Wechat",

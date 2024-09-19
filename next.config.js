@@ -2,6 +2,18 @@
 const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp']
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Mock the `fs` module to avoid issues in client-side code
+      config.resolve.fallback = {
+        fs: false,
+        path: false,
+        os: false,
+      }
+    }
+
+    return config
   }
 }
 

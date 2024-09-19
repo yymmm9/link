@@ -5,6 +5,9 @@ import { userData } from "@/constants";
 import type { Metadata, ResolvingMetadata } from "next";
 import dynamic from "next/dynamic";
 import { ButtonLink } from "@/components/button-link";
+import { PlusIcon } from "lucide-react";
+import { SaveVcf } from "@/components/client/save-as-vcf";
+
 export const revalidate = 86400;
 
 const CardLink = dynamic(() => import("@/components/card-link"), {
@@ -48,26 +51,29 @@ export async function generateStaticParams() {
 export default function HomePage({ params }: any) {
   let data = userData[params.slug];
   if (!data) return;
+
+  let fullname = data?.firstName + " " + data?.lastName;
   return (
     <main className="flex items-center flex-col mx-auto w-full justify-center pt-24 px-8">
-      <a
-        href=""
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-full"
+      <div
+        // href=""
+        // target="_blank"
+        // rel="noopener noreferrer"
+        className="rounded-full relative"
       >
+        <SaveVcf data={data} />
         <Avatar className="size-28 shadow border">
-          <AvatarImage alt={data.name} src={data.avatar} />
+          <AvatarImage alt={fullname} src={data.avatar} />
           <AvatarFallback className="font-monoo font-bold">
             {data.initials}
           </AvatarFallback>
         </Avatar>
-      </a>
+      </div>
 
       <section className="flex flex-col items-center justify-center">
         <div className="flex gap-4 justify-center items-center mt-8 mb-4">
           <h1 className="font-bold text-3xl dark:text-white text-black text-center">
-            {data.name}
+            {fullname}
           </h1>
         </div>
         <h2 className="mx-auto max-w-lg px-4 text-sm font-monoo font-semibold dark:text-neutral-300 text-neutral-700 md:text-pretty text-center">
