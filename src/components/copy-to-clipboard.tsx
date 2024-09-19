@@ -8,12 +8,12 @@ import { CopyIcon, CheckIcon } from "lucide-react";
 import clsx from "clsx";
 import { type Links } from "@/types";
 
+export const stripSpecialPrefixes = (url: string): string => {
+  return url.replace(/^(tel:|mailto:)/i, "");
+};
+
 export function CopyToClipboard({ url }: { url: Links["url"] }) {
   const [copied, setCopied] = useState(false);
-
-  const stripSpecialPrefixes = (url: string): string => {
-    return url.replace(/^(tel:|mailto:)/, "");
-  };
 
   const copyToClipboard = () => {
     let safeUrl = stripSpecialPrefixes(url);
@@ -78,10 +78,6 @@ export function CopyToClipboardWrapper({
   message?: string;
 }) {
   const [copied, setCopied] = useState(false);
-
-  const stripSpecialPrefixes = (url: string): string => {
-    return url.replace(/^(tel:|mailto:)/, "");
-  };
 
   const copyToClipboard = () => {
     let safeUrl = stripSpecialPrefixes(url);
