@@ -18,6 +18,7 @@ export const USER_DATA = {
     website: "",
     email: "e8507@hotmail.com",
     role: "",
+    wechat: "liye722",
     contacts: [
       {
         title: "Wechat",

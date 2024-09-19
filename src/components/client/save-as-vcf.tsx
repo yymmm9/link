@@ -4,14 +4,35 @@ import { PlusIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import dayjs from "dayjs";
 import VCard from "vcard-creator";
+import { cn } from "components/craft";
+import { cva } from "class-variance-authority";
 
-export const SaveVcf = ({ data }: UserData) => {
+export const SaveVcf = ({
+  data,
+  variant = "default",
+}: {
+  data: any;
+  variant?: "icon" | "default";
+}) => {
   if (!data) return;
+  const buttonStyles = cva(
+    "flex items-center", // common styles
+    {
+      variants: {
+        variant: {
+          default: " gap-2",
+          icon: "absolute bottom-0 right-0 z-10 size-8 p-1 rounded-full",
+        },
+      },
+      defaultVariants: {
+        variant: "default",
+      },
+    }
+  );
 
   const myVCard = new VCard();
 
   myVCard
-    // Add personal data
     .addName(data.lastName, data.firstName)
     // .addName(data.lastName, data.firstName, additional, prefix, suffix)
     // Add work data
@@ -30,6 +51,8 @@ export const SaveVcf = ({ data }: UserData) => {
 
   return (
     <Button
+      className={cn(buttonStyles({ variant }))}
+      variant={variant == "default" ? "secondary" : "default"}
       onClick={() => {
         const userAgent = window.navigator.userAgent;
         if (
@@ -62,9 +85,9 @@ export const SaveVcf = ({ data }: UserData) => {
           a.click();
         }
       }}
-      className="flex items-center p-1 absolute top-0 right-0 rounded-full z-10 size-7"
     >
-      <PlusIcon className="size-6" />
+      {variant == "default" && <PlusIcon className="size-4" />}
+      {variant == "icon" ? <PlusIcon className="size-6" /> : "Save to contacts"}
     </Button>
   );
 };

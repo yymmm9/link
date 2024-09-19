@@ -15,6 +15,7 @@ export type UserData = {
     slug: string;
     title: string;
     role: string;
+    wechat: string;
     firstName: string;
     lastName: string;
     organization: string;

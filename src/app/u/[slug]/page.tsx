@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { ButtonLink } from "@/components/button-link";
 import { PlusIcon } from "lucide-react";
 import { SaveVcf } from "@/components/client/save-as-vcf";
+import { TdesignLogoWechatStroke } from "@/components/icons/wechat-2";
 
 export const revalidate = 86400;
 
@@ -54,24 +55,24 @@ export default function HomePage({ params }: any) {
 
   let fullname = data?.firstName + " " + data?.lastName;
   return (
-    <main className="flex items-center flex-col mx-auto w-full justify-center pt-24 px-8">
+    <main className="flex items-center flex-col mx-auto w-full justify-center pt-14 px-8 gap-2">
       <div
         // href=""
         // target="_blank"
         // rel="noopener noreferrer"
         className="rounded-full relative"
       >
-        <SaveVcf data={data} />
+        <SaveVcf data={data} variant="icon" />
         <Avatar className="size-28 shadow border">
           <AvatarImage alt={fullname} src={data.avatar} />
-          <AvatarFallback className="font-monoo font-bold">
+          <AvatarFallback className="font-monoo font-bold text-lg">
             {data.initials}
           </AvatarFallback>
         </Avatar>
       </div>
 
-      <section className="flex flex-col items-center justify-center">
-        <div className="flex gap-4 justify-center items-center mt-8 mb-4">
+      <section className="flex flex-col items-center justify-center my-4 gap-2">
+        <div className="flex gap-4 justify-center items-center ">
           <h1 className="font-bold text-3xl dark:text-white text-black text-center">
             {fullname}
           </h1>
@@ -81,29 +82,41 @@ export default function HomePage({ params }: any) {
         </h2>
       </section>
 
-      <section className="flex items-center gap-4 my-8">
+      {/* <section className="flex items-center gap-4 my-8">
         {data.contacts.map((contact) => (
           <ButtonLink key={contact.url} {...contact} />
         ))}
-      </section>
-
+      </section> */}
+      <div className="">
+        <SaveVcf data={data} />
+      </div>
       {data.socials.length > 0 && (
-        <h3 className="font-semibold my-4 text-xl dark:text-white text-black text-center">
+        <h3 className="font-semibold  text-xl dark:text-white text-black text-center">
           Highlight
         </h3>
       )}
+
       {data.socials.map((social) => (
         <CardLink key={social.url} {...social} />
       ))}
-
-      {data.communities.length > 0 && (
-        <h3 className="font-semibold mt-8 mb-4 text-xl dark:text-white text-black text-center">
-          Links
-        </h3>
-      )}
-      {data.communities.map((community) => (
-        <CardLink key={community.url} {...community} />
-      ))}
+      <div className="flex flex-col gap-4 w-full">
+        {data.communities.length > 0 && (
+          <h3 className="font-semibold mt-4 text-xl dark:text-white text-black text-center">
+            Links
+          </h3>
+        )}
+        <CardLink
+          key={data.wechat}
+          mode="copy"
+          title={"Wechat: " + data.wechat}
+          url={data.wechat}
+          icon={<TdesignLogoWechatStroke />}
+          className="!bg-green-600 p-2 rounded-full"
+        />
+        {data.communities.map((community) => (
+          <CardLink key={community.url} {...community} />
+        ))}
+      </div>
     </main>
   );
 }
