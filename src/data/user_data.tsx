@@ -16,6 +16,8 @@ export const USER_DATA = {
     workPhone: "+34692085962",
     birthday: "",
     website: "",
+    email: "e8507@hotmail.com",
+    role: "",
     contacts: [
       {
         title: "Wechat",

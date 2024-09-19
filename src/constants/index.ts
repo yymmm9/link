@@ -14,11 +14,13 @@ export type UserData = {
   [key: string]: {
     slug: string;
     title: string;
+    role: string;
     firstName: string;
     lastName: string;
     organization: string;
     workPhone: string;
     website: string;
+    email: string;
     birthday: string;
     initials: string;
     avatar: string;
