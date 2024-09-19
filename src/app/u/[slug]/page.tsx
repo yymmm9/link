@@ -55,7 +55,7 @@ export default function HomePage({ params }: any) {
 
   let fullname = data?.firstName + " " + data?.lastName;
   return (
-    <main className="flex items-center flex-col mx-auto w-full justify-center pt-14 px-8 gap-2">
+    <main className="flex items-center flex-col mx-auto w-full justify-center pt-10 px-8 gap-2">
       <div
         // href=""
         // target="_blank"

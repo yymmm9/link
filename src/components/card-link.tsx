@@ -26,7 +26,7 @@ export default function CardLink({
           <div className="flex w-full items-center relative">
             {/* {icon && <div>{React.createElement(icon)}</div>}{" "} */}
 
-            <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center">
+            <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center size-6">
               {icon && icon}
             </div>
             {/* Render icon as JSX */}
@@ -46,7 +46,9 @@ export default function CardLink({
     return (
       <div
         className={cn(
-          buttonVariants({ variant: "default" }) + " w-full " + className
+          buttonVariants({ variant: "default" }),
+          " w-full max-w-lg",
+          className
         )}
       >
         <CopyToClipboardWrapper url={url} message="Wechat">
