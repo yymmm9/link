@@ -99,7 +99,7 @@ export default function HomePage({ params }: any) {
       {data.socials.map((social) => (
         <CardLink key={social.url} {...social} />
       ))}
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
         {data.communities.length > 0 && (
           <h3 className="font-semibold mt-4 text-xl dark:text-white text-black text-center">
             Links

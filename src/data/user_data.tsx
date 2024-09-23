@@ -83,7 +83,8 @@ export const USER_DATA = {
     organization: "西班牙华人基督教会总会办公室",
     title: "总干事",
     initials: "WF",
-    avatar: "",
+    avatar:
+      "https://xihuajiaohui.com/wp-content/uploads/2018/05/%E7%BD%91%E7%AB%99%E4%BC%9A%E5%BE%BD-1.png",
     about: ``,
     workPhone: "+34645886631",
     birthday: "",
