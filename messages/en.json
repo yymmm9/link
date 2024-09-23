@@ -5,8 +5,8 @@
   "links": "Links",
   "saveVcf": "Save to contacts",
   "liye": {
-    "firstName": "Li",
-    "lastName": "Ye",
+    "firstName": "Ye",
+    "lastName": "Li",
     "organization": "ACME",
     "title": "CEO",
     "initials": "LY",
@@ -15,7 +15,7 @@
   "weifeng": {
     "firstName": "Feng",
     "lastName": "Wei",
-    "organization": "IGLESIA CRISTIANA CHINA EN ESPAÑA",
+    "organization": "Iglesia Cristiana China En España",
     "title": "Director",
     "initials": "WF",
     "about": ""

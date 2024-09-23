@@ -1,15 +1,11 @@
-"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // import { data } from '@/constants'
-import { userData } from "@/constants";
-import type { Metadata, ResolvingMetadata } from "next";
+import { Links, userData } from "@/constants";
 import dynamic from "next/dynamic";
-import { ButtonLink } from "@/components/button-link";
-import { PlusIcon } from "lucide-react";
 import { SaveVcf } from "@/components/client/save-as-vcf";
 import { TdesignLogoWechatStroke } from "@/components/icons/wechat-2";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { getDictionary } from "../../dictionaries";
+import { MailIcon, PhoneIcon } from "lucide-react";
 
 export const revalidate = 86400;
 
@@ -21,11 +17,13 @@ const CardLink = dynamic(() => import("@/components/card-link"), {
 // });
 // generateMetadata should handle errors properly
 export async function generateMetadata({
-  params: { locale, slug },
+  params: { lang, slug },
 }: {
-  params: { locale: string; slug: string };
+  params: { lang: string; slug: string };
 }) {
-  const data = userData[slug] || null; // Handle missing data
+  // const data = userData[slug] || null; // Handle missing data
+  const t = await getDictionary(lang);
+  const data = t?.[slug];
 
   if (!data) {
     // Return metadata or log errors if necessary
@@ -50,7 +48,7 @@ export async function generateStaticParams() {
   }));
 }
 
-function getInitials(firstName: string, lastName: string) {
+function getInitials(firstName: string = "", lastName: string = "") {
   // Check if the name is Chinese
   const isChinese = /[\u4e00-\u9fa5]/.test(firstName + lastName);
 
@@ -70,18 +68,22 @@ function getInitials(firstName: string, lastName: string) {
   }
 }
 
-export default function HomePage({
+export default async function HomePage({
   params: { lang, slug },
 }: {
   params: { lang: string; slug: string };
 }) {
-  const t = useTranslations(slug);
-  console.log({ t });
-  let data = userData[slug];
-  console.log({ lang });
+  const t = await getDictionary(lang);
+  const data = t?.[slug];
+  const info = userData[slug];
+
+  console.log({ lang, slug });
   if (!data) return;
 
-  let fullname = data?.firstName + " " + data?.lastName;
+  let fullname =
+    lang == "zh"
+      ? data?.lastName + data?.firstName
+      : data?.firstName + " " + data?.lastName;
   return (
     <main className="flex items-center flex-col mx-auto w-full justify-center pt-10 px-8 gap-2">
       <div
@@ -90,21 +92,38 @@ export default function HomePage({
         // rel="noopener noreferrer"
         className="rounded-full relative"
       >
-        <SaveVcf data={data} variant="icon" />
-        <Avatar className="size-28 shadow border">
+        <SaveVcf data={data} variant="icon" cta={t.saveVcf} />
+        <Avatar className="size-24 shadow border">
           <AvatarImage alt={fullname} src={data.avatar} />
           <AvatarFallback className="font-monoo font-bold text-lg">
             {getInitials(data?.firstName, data?.lastName)}
           </AvatarFallback>
         </Avatar>
       </div>
+      <div className="flex gap-1 text-sm mx-auto text-sm font-monoo font-semibold dark:text-neutral-400 text-neutral-400 md:text-pretty text-center">
+        {data.title && (
+          <h2 className="">
+            {/* {data.role} */}
+            {data.title}
+          </h2>
+        )}
+        {data.title && data.organization && "⋅"}
 
-      <section className="flex flex-col items-center justify-center my-4 gap-2">
+        {data.organization && (
+          <h2 className="">
+            {/* <h2 className="mx-auto text-sm font-monoo font-semibold dark:text-neutral-300 text-neutral-700 md:text-pretty text-center"> */}
+            {data.organization}
+          </h2>
+        )}
+      </div>
+
+      <section className="flex flex-col items-center justify-center gap-2">
         <div className="flex gap-4 justify-center items-center ">
           <h1 className="font-bold text-3xl dark:text-white text-black text-center">
             {fullname}
           </h1>
         </div>
+
         <h2 className="mx-auto max-w-lg px-4 text-sm font-monoo font-semibold dark:text-neutral-300 text-neutral-700 md:text-pretty text-center">
           {data.about}
         </h2>
@@ -116,35 +135,51 @@ export default function HomePage({
         ))}
       </section> */}
       <div className="">
-        <SaveVcf data={data} />
+        <SaveVcf data={data} cta={t.saveVcf} />
       </div>
-      {data.socials.length > 0 && (
-        <h3 className="font-semibold  text-xl dark:text-white text-black text-center">
-          Highlight
-        </h3>
-      )}
+      {info && (
+        <>
+          {info.socials?.length > 0 && (
+            <h3 className="font-semibold text-xl dark:text-white text-black text-center">
+              Highlight
+            </h3>
+          )}
+          {info.socials?.map((social: Links) => (
+            <CardLink key={social.url} {...social} />
+          ))}
+          <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
+            {info.communities?.length > 0 && (
+              <h3 className="font-semibold mt-4 text-xl dark:text-white text-black text-center">
+                Links
+              </h3>
+            )}
+            <CardLink
+              key={info.wechat}
+              mode="copy"
+              title={t.wechat}
+              // title={t.wechat + ": " + info.wechat}
+              url={info.wechat}
+              icon={<TdesignLogoWechatStroke />}
+              className="!bg-green-600 p-2 rounded-full dark:text-white"
+            />
 
-      {data.socials.map((social) => (
-        <CardLink key={social.url} {...social} />
-      ))}
-      <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
-        {data.communities.length > 0 && (
-          <h3 className="font-semibold mt-4 text-xl dark:text-white text-black text-center">
-            Links
-          </h3>
-        )}
-        <CardLink
-          key={data.wechat}
-          mode="copy"
-          title={"Wechat: " + data.wechat}
-          url={data.wechat}
-          icon={<TdesignLogoWechatStroke />}
-          className="!bg-green-600 p-2 rounded-full"
-        />
-        {data.communities.map((community) => (
-          <CardLink key={community.url} {...community} />
-        ))}
-      </div>
+            <CardLink title={t.email} url={info.email} icon={<MailIcon />} />
+            <CardLink
+              title={t.phone}
+              url={info.workPhone}
+              icon={<PhoneIcon />}
+            />
+            <CardLink
+              title={t.wechat}
+              url={info.wechat}
+              icon={<TdesignLogoWechatStroke />}
+            />
+            {/* {info.communities?.map((community: Links) => (
+              <CardLink key={community.url} {...community} />
+            ))} */}
+          </div>
+        </>
+      )}
     </main>
   );
 }

@@ -12,20 +12,20 @@ export type Links = {
 
 export type UserData = {
   [key: string]: {
-    slug: string;
-    title: string;
-    role: string;
+    // slug: string;
     wechat: string;
-    firstName: string;
-    lastName: string;
-    organization: string;
+    // title: string;
+    // role: string;
+    // firstName: string;
+    // lastName: string;
+    // organization: string;
+    // about: string;
+    // initials: string;
     workPhone: string;
     website: string;
     email: string;
     birthday: string;
-    initials: string;
     avatar: string;
-    about: string;
     contacts: Links[];
     socials: Links[];
     communities: Links[];

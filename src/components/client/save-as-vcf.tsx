@@ -10,10 +10,13 @@ import { cva } from "class-variance-authority";
 export const SaveVcf = ({
   data,
   variant = "default",
+  cta,
 }: {
   data: any;
   variant?: "icon" | "default";
+  cta?: string;
 }) => {
+  console.log({ data });
   if (!data) return;
   const buttonStyles = cva(
     "flex items-center", // common styles
@@ -86,8 +89,12 @@ export const SaveVcf = ({
         }
       }}
     >
-      {variant == "default" && <PlusIcon className="size-4" />}
-      {variant == "icon" ? <PlusIcon className="size-6" /> : "Save to contacts"}
+      {variant == "icon" || !cta ? <PlusIcon className="size-6" /> : null}
+      {variant == "default" && cta ? (
+        <>
+          <PlusIcon className="size-4" /> {cta}
+        </>
+      ) : null}
     </Button>
   );
 };

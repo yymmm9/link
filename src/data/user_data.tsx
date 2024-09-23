@@ -9,7 +9,7 @@ export const USER_DATA = {
     birthday: "",
     website: "",
     email: "ye8507@hotmail.com",
-    role: "",
+    avatar: "",
     wechat: "liye722",
     contacts: [
       {
@@ -55,12 +55,10 @@ export const USER_DATA = {
   weifeng: {
     avatar:
       "https://xihuajiaohui.com/wp-content/uploads/2018/05/%E7%BD%91%E7%AB%99%E4%BC%9A%E5%BE%BD-1.png",
-    about: ``,
     workPhone: "+34645886631",
     birthday: "",
     website: "",
     email: "weifeng0526@hotmail.com",
-    role: "",
     wechat: "weifeng645886631",
     contacts: [
       {

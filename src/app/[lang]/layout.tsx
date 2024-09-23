@@ -1,6 +1,5 @@
 import type React from "react";
 
-import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { type Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
@@ -28,8 +27,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = await getMessages();
-
   return (
     <html
       lang={locale}
@@ -42,21 +39,19 @@ export default async function RootLayout({
     >
       {/* <Head metadata={metadata} /> */}
       <body className="w-full">
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <TooltipProvider>
-              <Header />
-              {children}
-              <Footer />
-            </TooltipProvider>
-            <Toaster />
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TooltipProvider>
+            <Header />
+            {children}
+            <Footer />
+          </TooltipProvider>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
