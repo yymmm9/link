@@ -16,7 +16,7 @@ export const USER_DATA = {
     workPhone: "+34692085962",
     birthday: "",
     website: "",
-    email: "e8507@hotmail.com",
+    email: "ye8507@hotmail.com",
     role: "",
     wechat: "liye722",
     contacts: [
@@ -74,6 +74,58 @@ export const USER_DATA = {
       //   url: 'https://dub.sh/dsnextjsarg',
       //   icon: DiscordIcon
       // }
+    ],
+  },
+  weifeng: {
+    slug: "",
+    firstName: "Feng",
+    lastName: "Wei",
+    organization: "西班牙华人基督教会总会办公室",
+    title: "总干事",
+    initials: "WF",
+    avatar: "",
+    about: ``,
+    workPhone: "+34645886631",
+    birthday: "",
+    website: "",
+    email: "weifeng0526@hotmail.com",
+    role: "",
+    wechat: "weifeng645886631",
+    contacts: [
+      {
+        title: "Email",
+        url: "mailto:weifeng0526@hotmail.com",
+        icon: <MailIcon />,
+      },
+      {
+        title: "Tel",
+        url: "tel:+34645886631",
+        icon: <PhoneIcon />,
+      },
+      {
+        title: "WhatsApp",
+        url: "https://wa.me/+34645886631",
+        icon: <WhatsappIcon />,
+      },
+    ],
+    socials: [
+      // {
+      //   title: "Conf 2024",
+      //   url: "",
+      //   // icon: GithubIcon
+      // },
+    ],
+    communities: [
+      {
+        title: "Email",
+        url: "mailto:weifeng0526@hotmail.com",
+        icon: <MailIcon />,
+      },
+      {
+        title: "Phone",
+        url: "tel:+34645886631",
+        icon: <PhoneIcon />,
+      },
     ],
   },
 };
