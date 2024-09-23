@@ -20,7 +20,7 @@ export default function CardLink({
     return (
       <div className="group relative flex items-center justify-between w-full border shadow rounded-full hover:scale-105 transition-all ease-in-out duration-300 dark:bg-black/90 bg-white/10 hover:bg-neutral-100 dark:hover:bg-neutral-800 max-w-lg cursor-pointer">
         <Link
-          href={url}
+          href={"//" + url}
           // target="_blank"
           // rel="noopener noreferrer"
           className="flex items-center w-full p-2 rounded-full"
