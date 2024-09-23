@@ -57,7 +57,7 @@ export const USER_DATA = {
       "https://xihuajiaohui.com/wp-content/uploads/2018/05/%E7%BD%91%E7%AB%99%E4%BC%9A%E5%BE%BD-1.png",
     workPhone: "+34645886631",
     birthday: "",
-    website: "hov.y-m.dev/u/weifeng",
+    website: "//hov.y-m.dev/u/weifeng",
     email: "weifeng0526@hotmail.com",
     wechat: "weifeng645886631",
     contacts: [
