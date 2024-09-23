@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Negotiator from "negotiator";
 import { match } from "@formatjs/intl-localematcher";
 import { NextRequest, NextResponse } from "next/server";
@@ -7,10 +8,10 @@ const defaultLocale = "zh";
 const cookieName = "i18nlang";
 
 // Get the preferred locale, similar to the above or using a library
-function getLocale(request: NextRequest): string {
+function getLocale(request) {
   // Get locale from cookie
   if (request.cookies.has(cookieName))
-    return request.cookies.get(cookieName)!.value;
+    return request.cookies.get(cookieName).value;
   // Get accept language from HTTP headers
   const acceptLang = request.headers.get("Accept-Language");
   if (!acceptLang) return defaultLocale;
@@ -20,7 +21,7 @@ function getLocale(request: NextRequest): string {
   return match(languages, locales, defaultLocale);
 }
 
-export function middleware(request: NextRequest) {
+export function middleware(request) {
   if (request.nextUrl.pathname.startsWith("/_next")) return NextResponse.next();
 
   // Check if there is any supported locale in the pathname
