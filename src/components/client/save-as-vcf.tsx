@@ -9,14 +9,16 @@ import { cva } from "class-variance-authority";
 
 export const SaveVcf = ({
   data,
+  info,
   variant = "default",
   cta,
 }: {
   data: any;
+  info: any;
   variant?: "icon" | "default";
   cta?: string;
 }) => {
-  console.log({ data });
+  console.log("vcf", { data });
   if (!data) return;
   const buttonStyles = cva(
     "flex items-center", // common styles
@@ -37,17 +39,17 @@ export const SaveVcf = ({
 
   myVCard
     .addName(data.lastName, data.firstName)
-    // .addName(data.lastName, data.firstName, additional, prefix, suffix)
-    // Add work data
+    // // .addName(data.lastName, data.firstName, additional, prefix, suffix)
+    // // Add work data
     .addCompany(data.organization)
     .addJobtitle(data.title)
     .addRole(data.role)
-    .addEmail(data.email)
-    .addPhoneNumber(data.workPhone, "PREF;WORK")
+    .addEmail(info.email)
+    .addPhoneNumber(info.workPhone, "PREF;WORK")
     // .addPhoneNumber(123456789, 'WORK')
     // .addAddress(null, null, 'street', 'worktown', null, 'workpostcode', 'Belgium')
     // .addSocial('https://twitter.com/desloovere_j', 'Twitter', 'desloovere_j')
-    .addURL(data.website);
+    .addURL(info.website);
 
   //get as formatted string
   const vCardString = myVCard.toString();

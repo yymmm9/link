@@ -92,7 +92,7 @@ export default async function HomePage({
         // rel="noopener noreferrer"
         className="rounded-full relative"
       >
-        <SaveVcf data={data} variant="icon" cta={t.saveVcf} />
+        <SaveVcf info={info} data={data} variant="icon" cta={t.saveVcf} />
         <Avatar className="size-24 shadow border">
           <AvatarImage alt={fullname} src={info?.avatar} />
           <AvatarFallback className="font-monoo font-bold text-lg">
@@ -134,7 +134,7 @@ export default async function HomePage({
         ))}
       </section> */}
       <div className="">
-        <SaveVcf data={data} cta={t.saveVcf} />
+        <SaveVcf data={data} info={info} cta={t.saveVcf} />
       </div>
       {info && (
         <>

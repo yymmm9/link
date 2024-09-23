@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      // lang="en"
       className={cn(
         "min-h-screen bg-background font-sans antialiased overflow-y-scroll",
         GeistSans.variable

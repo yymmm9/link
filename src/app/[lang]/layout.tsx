@@ -27,31 +27,31 @@ export default async function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html
-      lang={locale}
+    <div
+      // lang={locale}
       className={cn(
-        "min-h-screen bg-background font-sans antialiased overflow-y-scroll",
+        "min-h-screen bg-background font-sans antialiased overflow-y-scroll w-full",
         GeistSans.variable
         // GeistMono.variable
       )}
       suppressHydrationWarning
     >
       {/* <Head metadata={metadata} /> */}
-      <body className="w-full">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TooltipProvider>
-            <Header />
-            {children}
-            <Footer />
-          </TooltipProvider>
-          <Toaster />
-        </ThemeProvider>
-      </body>
-    </html>
+      {/* <body className="w-full"> */}
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <TooltipProvider>
+          <Header />
+          {children}
+          <Footer />
+        </TooltipProvider>
+        <Toaster />
+      </ThemeProvider>
+      {/* </body> */}
+    </div>
   );
 }
