@@ -94,13 +94,13 @@ export default async function HomePage({
       >
         <SaveVcf data={data} variant="icon" cta={t.saveVcf} />
         <Avatar className="size-24 shadow border">
-          <AvatarImage alt={fullname} src={data.avatar} />
+          <AvatarImage alt={fullname} src={info?.avatar} />
           <AvatarFallback className="font-monoo font-bold text-lg">
             {getInitials(data?.firstName, data?.lastName)}
           </AvatarFallback>
         </Avatar>
       </div>
-      <div className="flex gap-1 text-sm mx-auto text-sm font-monoo font-semibold dark:text-neutral-400 text-neutral-400 md:text-pretty text-center">
+      <div className="flex gap-1 text-sm mx-auto font-monoo font-semibold dark:text-neutral-400 text-neutral-400 md:text-pretty text-center">
         {data.title && (
           <h2 className="">
             {/* {data.role} */}
@@ -160,7 +160,7 @@ export default async function HomePage({
               // title={t.wechat + ": " + info.wechat}
               url={info.wechat}
               icon={<TdesignLogoWechatStroke />}
-              className="!bg-green-600 p-2 rounded-full dark:text-white"
+              className="!bg-green-600 p-2 rounded-full dark:!text-white"
             />
 
             <CardLink title={t.email} url={info.email} icon={<MailIcon />} />
