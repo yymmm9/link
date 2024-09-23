@@ -2,7 +2,6 @@ import {
   CopyToClipboard,
   CopyToClipboardWrapper,
 } from "@/components/copy-to-clipboard";
-import { Links } from "@/constants";
 import React from "react";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -14,6 +13,7 @@ export default function CardLink({
   mode = "default",
   className,
 }: any) {
+  if (!url) return;
   if (mode == "default") {
     return (
       <div className="group relative flex items-center justify-between w-full border shadow rounded-full hover:scale-105 transition-all ease-in-out duration-300 dark:bg-black/90 bg-white/10 hover:bg-neutral-100 dark:hover:bg-neutral-800 max-w-lg cursor-pointer">

@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { SaveVcf } from "@/components/client/save-as-vcf";
 import { TdesignLogoWechatStroke } from "@/components/icons/wechat-2";
 import { getDictionary } from "../../dictionaries";
-import { MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 
 export const revalidate = 86400;
 
@@ -100,22 +100,6 @@ export default async function HomePage({
           </AvatarFallback>
         </Avatar>
       </div>
-      <div className="flex gap-1 text-sm mx-auto font-monoo font-semibold dark:text-neutral-400 text-neutral-400 md:text-pretty text-center">
-        {data.title && (
-          <h2 className="">
-            {/* {data.role} */}
-            {data.title}
-          </h2>
-        )}
-        {data.title && data.organization && "⋅"}
-
-        {data.organization && (
-          <h2 className="">
-            {/* <h2 className="mx-auto text-sm font-monoo font-semibold dark:text-neutral-300 text-neutral-700 md:text-pretty text-center"> */}
-            {data.organization}
-          </h2>
-        )}
-      </div>
 
       <section className="flex flex-col items-center justify-center gap-2">
         <div className="flex gap-4 justify-center items-center ">
@@ -123,7 +107,22 @@ export default async function HomePage({
             {fullname}
           </h1>
         </div>
+        <div className="flex gap-1 text-sm mx-auto font-monoo font-semibold dark:text-neutral-400 text-neutral-400 md:text-pretty text-center">
+          {data.title && (
+            <h2 className="">
+              {/* {data.role} */}
+              {data.title}
+            </h2>
+          )}
+          {data.title && data.organization && "⋅"}
 
+          {data.organization && (
+            <h2 className="">
+              {/* <h2 className="mx-auto text-sm font-monoo font-semibold dark:text-neutral-300 text-neutral-700 md:text-pretty text-center"> */}
+              {data.organization}
+            </h2>
+          )}
+        </div>
         <h2 className="mx-auto max-w-lg px-4 text-sm font-monoo font-semibold dark:text-neutral-300 text-neutral-700 md:text-pretty text-center">
           {data.about}
         </h2>
@@ -170,9 +169,9 @@ export default async function HomePage({
               icon={<PhoneIcon />}
             />
             <CardLink
-              title={t.wechat}
-              url={info.wechat}
-              icon={<TdesignLogoWechatStroke />}
+              title={t.website}
+              url={info.website}
+              icon={<GlobeIcon />}
             />
             {/* {info.communities?.map((community: Links) => (
               <CardLink key={community.url} {...community} />
