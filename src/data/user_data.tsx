@@ -5,14 +5,6 @@ import { PhoneIcon, MailIcon, MessageCircleMoreIcon } from "lucide-react";
 
 export const USER_DATA = {
   liye: {
-    slug: "",
-    firstName: "Li",
-    lastName: "Ye",
-    organization: "",
-    title: "CMO",
-    initials: "LY",
-    avatar: "",
-    about: `Eu dolore anim quis laboris Lorem non ex ea consequat quis cillum occaecat tempor mollit tempor aliquip incididunt et velit.`,
     workPhone: "+34692085962",
     birthday: "",
     website: "",
@@ -41,13 +33,7 @@ export const USER_DATA = {
         icon: <WhatsappIcon />,
       },
     ],
-    socials: [
-      // {
-      //   title: "Conf 2024",
-      //   url: "",
-      //   // icon: GithubIcon
-      // },
-    ],
+    socials: [],
     communities: [
       {
         title: "Email",
@@ -64,25 +50,9 @@ export const USER_DATA = {
         url: "liye722",
         icon: <TdesignLogoWechatStroke />,
       },
-      // {
-      //   title: 'Next.js Argentina',
-      //   url: 'https://dub.sh/nextjsargentina',
-      //   icon: NextJSArgIcon
-      // },
-      // {
-      //   title: 'Discord Community',
-      //   url: 'https://dub.sh/dsnextjsarg',
-      //   icon: DiscordIcon
-      // }
     ],
   },
   weifeng: {
-    slug: "",
-    firstName: "Feng",
-    lastName: "Wei",
-    organization: "西班牙华人基督教会总会办公室",
-    title: "总干事",
-    initials: "WF",
     avatar:
       "https://xihuajiaohui.com/wp-content/uploads/2018/05/%E7%BD%91%E7%AB%99%E4%BC%9A%E5%BE%BD-1.png",
     about: ``,

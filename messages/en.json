@@ -1,0 +1,23 @@
+{
+  "wechat": "Wechat",
+  "phone": "Phone",
+  "email": "Email",
+  "links": "Links",
+  "saveVcf": "Save to contacts",
+  "liye": {
+    "firstName": "Li",
+    "lastName": "Ye",
+    "organization": "ACME",
+    "title": "CEO",
+    "initials": "LY",
+    "about": "Eu dolore anim quis laboris Lorem non ex ea consequat quis cillum occaecat tempor mollit tempor aliquip incididunt et velit."
+  },
+  "weifeng": {
+    "firstName": "Feng",
+    "lastName": "Wei",
+    "organization": "IGLESIA CRISTIANA CHINA EN ESPAÑA",
+    "title": "Director",
+    "initials": "WF",
+    "about": ""
+  }
+}

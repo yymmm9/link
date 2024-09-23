@@ -1,4 +1,4 @@
-// @ts-nocheck
+"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // import { data } from '@/constants'
 import { userData } from "@/constants";
@@ -8,6 +8,8 @@ import { ButtonLink } from "@/components/button-link";
 import { PlusIcon } from "lucide-react";
 import { SaveVcf } from "@/components/client/save-as-vcf";
 import { TdesignLogoWechatStroke } from "@/components/icons/wechat-2";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export const revalidate = 86400;
 
@@ -18,13 +20,12 @@ const CardLink = dynamic(() => import("@/components/card-link"), {
 //   ssr: false,
 // });
 // generateMetadata should handle errors properly
-
 export async function generateMetadata({
-  params,
+  params: { locale, slug },
 }: {
-  params: { slug: string };
+  params: { locale: string; slug: string };
 }) {
-  const data = userData[params.slug] || null; // Handle missing data
+  const data = userData[slug] || null; // Handle missing data
 
   if (!data) {
     // Return metadata or log errors if necessary
@@ -32,7 +33,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: data.name,
+    title: data?.firstName + " " + data?.lastName,
   };
 }
 
@@ -49,8 +50,35 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function HomePage({ params }: any) {
-  let data = userData[params.slug];
+function getInitials(firstName: string, lastName: string) {
+  // Check if the name is Chinese
+  const isChinese = /[\u4e00-\u9fa5]/.test(firstName + lastName);
+
+  if (isChinese) {
+    const fullName = lastName + firstName; // Combine last and first name
+    if (fullName.length === 2) {
+      return fullName; // For 2-character Chinese names, return full name
+    } else {
+      return lastName; // For 3 or more characters, return last name only
+    }
+  } else {
+    // Handle non-Chinese names (assumed to be in English)
+    const initials = (firstName[0] || "") + (lastName[0] || "");
+    return initials.length > 3
+      ? initials.slice(0, 3).toUpperCase()
+      : initials.toUpperCase();
+  }
+}
+
+export default function HomePage({
+  params: { lang, slug },
+}: {
+  params: { lang: string; slug: string };
+}) {
+  const t = useTranslations(slug);
+  console.log({ t });
+  let data = userData[slug];
+  console.log({ lang });
   if (!data) return;
 
   let fullname = data?.firstName + " " + data?.lastName;
@@ -66,7 +94,7 @@ export default function HomePage({ params }: any) {
         <Avatar className="size-28 shadow border">
           <AvatarImage alt={fullname} src={data.avatar} />
           <AvatarFallback className="font-monoo font-bold text-lg">
-            {data.initials}
+            {getInitials(data?.firstName, data?.lastName)}
           </AvatarFallback>
         </Avatar>
       </div>
